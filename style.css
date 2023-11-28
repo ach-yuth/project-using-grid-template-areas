@@ -27,6 +27,7 @@ p {
 }
 .box-1 p:hover {
   opacity: 1;
+  cursor: pointer;
 }
 .container {
   display: grid;
@@ -59,6 +60,12 @@ p {
       "kindness "
       "hungry";
     gap: 20px;
+  }
+  .mainbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 #woman {
@@ -121,6 +128,10 @@ ul {
 }
 .mainbox {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+}
+li a {
+  text-decoration: none;
+  color: black;
 }
