@@ -47,6 +47,8 @@ p {
   }
   .container {
     display: grid;
+    position: absolute;
+    z-index: -1;
     grid-template-areas:
       "woman "
       "tower"
@@ -63,11 +65,68 @@ p {
   }
   .mainbox {
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .box1 {
+    display: none;
+  }
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 48px;
+    height: 6px;
+    background-color: black;
+    border-radius: 5px;
+    margin: 3px;
+  }
+  .mainbox {
+    position: relative;
+  }
+  .hamburg {
+    width: 50px;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+  }
+  span {
+    margin-left: 10px;
+  }
+  .box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .navbox ul {
+    list-style-type: none;
+    position: fixed;
+    top: 0;
+    right: -60px;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 6px;
+    height: 320px;
+    padding: 24px;
+    margin: 0 10px;
+    transition: all 1s ease-in-out;
+    box-sizing: border-box;
   }
 }
+.opendraw {
+  transform: translateX(-40px);
+}
+ul {
+  display: none;
+}
+
 #woman {
   grid-area: woman;
 }
@@ -106,9 +165,8 @@ p {
 }
 .box {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  width: 400px;
 }
 h1 {
   font-weight: 900;
@@ -118,13 +176,14 @@ li img {
   width: 30px;
   height: 30px;
 }
-ul {
+.box1 ul {
   list-style-type: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 400px;
   text-transform: capitalize;
+  box-sizing: border-box;
 }
 .mainbox {
   display: flex;
@@ -134,4 +193,47 @@ ul {
 li a {
   text-decoration: none;
   color: black;
+  text-transform: capitalize;
+}
+span {
+  margin-left: 30px;
+}
+
+.animatebar1 {
+  animation: 0.1s bar1;
+  animation-fill-mode: forwards;
+}
+.animatebar2 {
+  animation: 0.1s bar2;
+  animation-fill-mode: forwards;
+}
+.animatebar3 {
+  animation: 0.1s bar3;
+  animation-fill-mode: forwards;
+}
+@keyframes bar1 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(45deg) translate(20px, 10px);
+  }
+}
+@keyframes bar2 {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+@keyframes bar3 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-45deg) translate(6px, 4px);
+  }
 }
